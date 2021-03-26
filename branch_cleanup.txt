@@ -1,0 +1,19 @@
+git remote -v
+
+git branch --list
+git pull
+
+## After github "master" is megred to "main"
+## & branch is deleted in guthub
+
+git checkout main
+git branch --unset-upstream
+git branch --set-upstream-to=origin/main main
+git pull
+
+## Delete unused branch(es)
+git branch --list
+git branch -d master
+
+git branch --list
+  
