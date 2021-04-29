@@ -1,0 +1,23 @@
+---
+- name: show version and interfaces
+  hosts: R2,R6
+  gather_facts: false
+  connection: local
+  tasks:
+    - name: command list
+      ios_command:
+        commands:
+        - show crypto isakmp policy
+        - show crypto isakmp peers
+        - show crypto isakmp sa
+        - show crypto session
+        - show crypto map
+        - show crypto ipsec sa
+        - show crypto engine configuration
+        - show crypto ipsec sa | inc encr|decr
+        - show version
+        - show ip interface brief
+        - show ip ospf int brief
+        - show ip bgp summary
+      register: print_output
+    - debug: var=print_output.stdout_lines
