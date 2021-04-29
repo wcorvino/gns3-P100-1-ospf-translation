@@ -7,8 +7,6 @@
     - name: command list
       ios_command:
         commands:
-        - show version
-        - show ip interface brief
         - show crypto isakmp policy
         - show crypto isakmp peers
         - show crypto isakmp sa
@@ -17,5 +15,9 @@
         - show crypto ipsec sa
         - show crypto engine configuration
         - show crypto ipsec sa | inc encr|decr
+        - show version
+        - show ip interface brief
+        - show ip ospf int brief
+        - show ip bgp summary
       register: print_output
     - debug: var=print_output.stdout_lines
